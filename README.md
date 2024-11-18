@@ -9,10 +9,10 @@ This repository contains the code used in the experiments of the paper titled "$
 ### Setup the python environment
 1. Install the dependencies with `conda env create -n dx-privacy-text --file dx-privacy-text.yml`
 2. Activate the conda environment `conda activate dx-privacy-text`
-3. Make a directory to host the vocabularies, named *ROOT_DIR* hereafter.
+3. Make a directory to host the vocabularies and write its absolute path to config.py.
 
 ### Download and pre-process the vocabularies
-1. In the ROOT_DIR folder, download the following files:
+1. In the folder created above, download the following files:
     - glove.6B.zip from [https://nlp.stanford.edu/projects/glove/](https://nlp.stanford.edu/projects/glove/). After extraction, you should have four files: glove.6B.50d.txt, glove.6B.100d.txt, glove.6B.200d.txt and glove.6B.300d.txt
     - glove.twitter.27B.zip from [https://nlp.stanford.edu/projects/glove/](https://nlp.stanford.edu/projects/glove/). After extraction, you should have four files: glove.twitter.27B.25d.txt, glove.twitter.27B.50d.txt, glove.twitter.27B.100d.txt, glove.twitter.27B.200d.txt
     - wiki.en.vec from [https://fasttext.cc/docs/en/pretrained-vectors.html](https://fasttext.cc/docs/en/pretrained-vectors.html) under "English: text".
@@ -22,7 +22,7 @@ This repository contains the code used in the experiments of the paper titled "$
 
 ### Execute the experiments
 In each of the code folders mentionned above there are two files:
-- NeighborDistances.ipynb generates the results used in Table 2, which involves computing distances between words and their k-th neighbor within the voculary. The code in the glove folder contains an additional section to generate the data for Figure 6.
+- NeighborDistances.ipynb generates the results used in Table 2, which involves computing distances between words and their k-th neighbor within the vocabulary. The code in the glove folder contains an additional section to generate the data for Figure 6.
 - CloseNeighborsDxFrequencies.ipynb generates the results used in Figure 2, which involves applying $d_x$-privacy to random words and identifying the rank (i.e., the "k" in k-th neighbor) of the word which was chosen as the replacement by the mechanism. The code in the glove and word2vec folders additionaly include the post-processing fix proposed in the paper and used for Figure 8.
 
 Note that the glove folder contains an additional file named textSanitization.ipynb which was used to produce the sanitization example of a small paragraph in Section 2.
